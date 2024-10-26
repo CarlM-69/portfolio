@@ -12,8 +12,10 @@ const App = () => {
 	});
 
 	return (
-		<div className="bg_background_bg bg-gray-200">
-
+		<div className="absolute right-20 w-12 h-40 bg-gray-600 justify-items-center">
+			<div className="outline-1 outline-dashed outline-white w-0 h-20 flex flex-col items-center justify-end">
+				<div className="rounded-full bg-white w-3 h-3 mt-16" />
+			</div>
 		</div>
 	);
 };
