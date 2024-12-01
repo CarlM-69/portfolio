@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 document.body.classList.add(
 	"bg-gray-200",
-	"dark:bg-slate-950",
+	"dark:bg-stone-900",
 	"transition-colors",
 	"duration-500"
 );
