@@ -7,6 +7,7 @@ library.add(faBars)
 
 const App = () => {
 	const [theme, setTheme] = useState("dark");
+	let hamborgarDebounce = false;
 
 	useEffect(() => {
 		document.documentElement.classList.toggle("dark", theme == "dark");
@@ -21,6 +22,23 @@ const App = () => {
 			element.addEventListener("mouseleave", () => {
 				element.classList.remove("!text-purple-500");
 			});
+		});
+
+		document.querySelector(".hamborgar").addEventListener("click", () => {
+			if(hamborgarDebounce) return;
+			hamborgarDebounce = true;
+
+			setTimeout(() => {
+				hamborgarDebounce = false;
+			}, 500);
+
+			if(document.querySelector(".navbar").classList.contains("!top-[100px]")) {
+				document.querySelector(".navbar").classList.remove("!top-[100px]");
+				document.querySelector(".hamborgar").classList.remove("rotate-90");
+			} else {
+				document.querySelector(".navbar").classList.add("!top-[100px]");
+				document.querySelector(".hamborgar").classList.add("rotate-90");
+			}
 		});
 	});
 
@@ -37,11 +55,11 @@ const App = () => {
 				</span>
 
 				<span className="text-3xl cursor-pointer md:hidden block mx-2">
-					<FontAwesomeIcon icon="fa-solid fa-bars" />
+					<FontAwesomeIcon icon="fa-solid fa-bars" className="hamborgar text-stone-900 dark:text-gray-200 transition-all duration-500" />
 				</span>
 			</div>
 
-			<ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-gray-300 dark:bg-stone-800 md:bg-transparent md:dark:bg-transparent w-full md:w-auto left-0 md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 top-[-50px] transition-transform ease-in-out duration-500">
+			<ul className="navbar md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-gray-300 dark:bg-stone-800 md:bg-transparent md:dark:bg-transparent w-full md:w-auto left-0 md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 top-[-50px] transition-all ease-in-out duration-500">
 				<li className="select-none mx-3 my-6 md:my-0">
 					<a href="#Information" className="text-x1 font-nunito text-stone-900 dark:text-gray-200 duration-500">INFORMATION</a>
 				</li>
