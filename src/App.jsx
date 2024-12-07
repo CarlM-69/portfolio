@@ -66,6 +66,7 @@ const App = () => {
 				currentChar += 1;
 
 				if(currentChar == descList[currentDesc].length) {
+					description.textContent = descList[currentDesc];
 					clearInterval(run);
 					currentChar = 0;
 
