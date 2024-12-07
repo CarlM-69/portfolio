@@ -7,7 +7,8 @@ document.body.classList.add(
 	"bg-gray-200",
 	"dark:bg-stone-900",
 	"transition-colors",
-	"duration-500"
+	"duration-500",
+	"overflow-x-hidden"
 );
 
 window.onload = () => {

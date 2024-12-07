@@ -9,7 +9,8 @@ export default {
 		extend: {
 			fontFamily: {
 				jaro: ["Jaro", "serif"],
-				nunito: ["Nunito", "sans-serif"]
+				nunito: ["Nunito", "sans-serif"],
+				sourceCP: ["Source Code Pro", "monospace"]
 			}
 		},
 	},
