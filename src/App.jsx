@@ -138,7 +138,7 @@ const App = () => {
 			</div>
 			<div className="w-full h-screen absolute top-0 z-[-999]">
 				<div className="w-full h-full">
-					<span className="text-3xl md:text-5xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 md:top-[45%] left-[7%]">
+					<span className="text-3xl md:text-5xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 md:top-[45%] left-[7%] cursor-default select-none">
 						Welcome.
 						<span className="description block text-xl md:text-2xl w-4/5 md:w-2/5 text-stone-700 dark:text-stone-400"></span>
 					</span>
