@@ -104,7 +104,7 @@ const App = () => {
 			}, (Math.floor(Math.random * 5) + 1) == 3 ? 200 : 90);
 		}
 		updateDesc();
-	});
+	}, []);
 
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
 		setTheme(event.matches ? "dark" : "light");
