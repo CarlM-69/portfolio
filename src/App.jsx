@@ -13,7 +13,7 @@ const App = () => {
 
 	var descList = [
 		"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, accusantium!",
-		"Barabida",
+		"Paolo iyot tayo please",
 		"hahah"
 	];
 
