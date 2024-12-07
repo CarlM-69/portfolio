@@ -92,7 +92,9 @@ const App = () => {
 								currentChar = 0;
 								currentDesc += 1;
 
-								updateDesc();
+								setTimeout(() => {
+									updateDesc();
+								}, (Math.floor(Math.random() * 3) + 2) * 1000);
 							}
 						}, 40);
 					}, (Math.floor(Math.random() * 3) + 2) * 1000);
