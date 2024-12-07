@@ -96,12 +96,12 @@ const App = () => {
 
 								setTimeout(() => {
 									updateDesc();
-								}, (Math.floor(Math.random() * 3) + 1) * 1000);
+								}, (Math.floor(Math.random() * 2) + 1) * 1000);
 							}
 						}, 40);
 					}, (Math.floor(Math.random() * 3) + 2) * 1000);
 				}
-			}, (Math.floor(Math.random * 5) + 1) == 3 ? 200 : 90);
+			}, (Math.floor(Math.random * 4) + 1) == 3 ? 500 : 90);
 		}
 		updateDesc();
 	}, []);
