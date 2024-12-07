@@ -11,10 +11,14 @@ const App = () => {
 	let hamborgarDebounce = false;
 	let currentDesc = 0;
 
+	var typeCursor = NaN;
 	var descList = [
-		"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, accusantium!",
-		"Paolo iyot tayo please",
-		"hahah"
+		"Mabuhay sa inyo!",
+		"Passionate hardworker.",
+		"to the Portfolio!",
+		"Feel free to look around :)",
+		"Nice Choice!",
+		"It's nice to see you here!"
 	];
 
 	useEffect(() => {
@@ -54,7 +58,6 @@ const App = () => {
 			}
 		});
 
-		var typeCursor = NaN;
 		async function updateDesc() {
 			let currentChar = 0;
 
@@ -104,13 +107,11 @@ const App = () => {
 			}, (Math.floor(Math.random * 4) + 1) == 3 ? 300 : 80);
 		}
 		updateDesc();
-	}, []);
+	});
 
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
 		setTheme(event.matches ? "dark" : "light");
 	});
-
-	console.log("test");
 
 	return (
 		<>
