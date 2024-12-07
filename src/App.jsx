@@ -7,9 +7,12 @@ library.add(faBars)
 
 const App = () => {
 	const [theme, setTheme] = useState("dark");
+
 	let hamborgarDebounce = false;
-	var descriptionList = [
-		"Omsim",
+	let currentDesc = 0;
+
+	var descList = [
+		"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, accusantium!",
 		"Barabida",
 		"hahah"
 	];
@@ -50,6 +53,53 @@ const App = () => {
 				hamborgar.classList.add("rotate-90");
 			}
 		});
+
+		var typeCursor = NaN;
+		async function updateDesc() {
+			let currentChar = 0;
+
+			if(typeCursor) clearInterval(typeCursor);
+			if(!descList[currentDesc]) currentDesc = 0;
+
+			var run = setInterval(() => {
+				description.textContent = descList[currentDesc].slice(0, currentChar);
+				currentChar += 1;
+
+				if(currentChar == descList[currentDesc].length) {
+					clearInterval(run);
+					currentChar = 0;
+
+					typeCursor = setInterval(() => {
+						if(currentChar == 0) {
+							description.textContent = descList[currentDesc] + "|";
+							currentChar = 1;
+						} else {
+							description.textContent = descList[currentDesc];
+							currentChar = 0;
+						}
+					}, 500);
+
+					setTimeout(() => {
+						clearInterval(typeCursor);
+						currentChar = descList[currentDesc].length;
+
+						var remove = setInterval(() => {
+							description.textContent = descList[currentDesc].slice(0, currentChar);
+							currentChar -= 1;
+
+							if(currentChar == 0) {
+								clearInterval(remove);
+								currentChar = 0;
+								currentDesc += 1;
+
+								updateDesc();
+							}
+						}, 40);
+					}, (Math.floor(Math.random() * 3) + 2) * 1000);
+				}
+			}, 60);
+		}
+		updateDesc();
 	});
 
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
