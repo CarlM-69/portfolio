@@ -101,7 +101,7 @@ const App = () => {
 						}, 40);
 					}, (Math.floor(Math.random() * 3) + 2) * 1000);
 				}
-			}, 60);
+			}, (Math.floor(Math.random * 5) + 1) == 3 ? 200 : 90);
 		}
 		updateDesc();
 	});
