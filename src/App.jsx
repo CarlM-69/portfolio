@@ -78,7 +78,7 @@ const App = () => {
 							description.textContent = descList[currentDesc];
 							currentChar = 0;
 						}
-					}, 500);
+					}, 400);
 
 					setTimeout(() => {
 						clearInterval(typeCursor);
@@ -101,7 +101,7 @@ const App = () => {
 						}, 40);
 					}, (Math.floor(Math.random() * 3) + 2) * 1000);
 				}
-			}, (Math.floor(Math.random * 4) + 1) == 3 ? 500 : 90);
+			}, (Math.floor(Math.random * 4) + 1) == 3 ? 300 : 80);
 		}
 		updateDesc();
 	}, []);
