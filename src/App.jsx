@@ -89,6 +89,7 @@ const App = () => {
 							currentChar -= 1;
 
 							if(currentChar == 0) {
+								description.textContent = "";
 								clearInterval(remove);
 								currentChar = 0;
 								currentDesc += 1;
