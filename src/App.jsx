@@ -154,7 +154,7 @@ const App = () => {
 					<span className="text-3xl md:text-5xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 md:top-[45%] left-[7%] cursor-default select-none">
 						Welcome.
 					</span>
-					<span className="description block text-xl md:text-2xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 w-[15rem] sm:w-[25rem] md:w-[35rem] md:top-[45%] left-[7%] cursor-default select-none"></span>
+					<span className="description block text-xl md:text-2xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 w-[13rem] sm:w-[25rem] md:w-[35rem] md:top-[45%] left-[7%] cursor-default select-none"></span>
 				</div>
 			</div>
 		</>
