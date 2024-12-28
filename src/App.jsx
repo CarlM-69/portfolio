@@ -115,7 +115,7 @@ const App = () => {
 
 	return (
 		<>
-			<div className="p-9 bg-gray-300 dark:bg-stone-800 md:bg-transparent md:dark:bg-transparent md:flex md:items-center md:justify-between relative overflow-x-hidden">
+			<div className="p-9 bg-gray-300 dark:bg-stone-800 md:bg-transparent md:dark:bg-transparent md:flex md:items-center md:justify-between">
 				<div className="flex justify-between items-center">
 					<span className="text-2xl font-jaro text-stone-900 dark:text-gray-200 cursor-default select-none">
 						<img src="./portfolio-icon.svg" alt="logo" draggable="false" className="h-7 inline mr-1" />

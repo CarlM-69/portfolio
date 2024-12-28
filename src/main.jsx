@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+document.documentElement.classList.add("overflow-x-hidden");
 document.body.classList.add(
 	"bg-gray-200",
 	"dark:bg-stone-900",
