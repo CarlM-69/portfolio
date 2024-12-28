@@ -9,17 +9,17 @@ const App = () => {
 	const [theme, setTheme] = useState("dark");
 
 	let hamborgarDebounce = false;
-	let currentDesc = 0;
 
 	var typeCursor = NaN;
 	var descList = [
 		"Mabuhay sa inyo!",
-		"Passionate hardworker.",
+		"Passionate hard/smart worker.",
 		"to the Portfolio!",
-		"Feel free to look around :)",
+		"Feel free to take a look around :)",
 		"Nice Choice!",
 		"It's nice to see you here!"
 	];
+	let currentDesc = Math.floor(Math.random() * descList.length);
 
 	useEffect(() => {
 		document.documentElement.classList.toggle("dark", theme == "dark");
@@ -62,48 +62,61 @@ const App = () => {
 			let currentChar = 0;
 
 			if(typeCursor) clearInterval(typeCursor);
-			if(!descList[currentDesc]) currentDesc = 0;
-
 			var run = setInterval(() => {
 				description.textContent = descList[currentDesc].slice(0, currentChar);
 				currentChar += 1;
 
-				if(currentChar == descList[currentDesc].length) {
-					description.textContent = descList[currentDesc];
-					clearInterval(run);
-					currentChar = 0;
+				if(currentChar != descList[currentDesc].length) return;
+				clearInterval(run);
 
-					typeCursor = setInterval(() => {
-						if(currentChar == 0) {
-							description.textContent = descList[currentDesc] + "|";
-							currentChar = 1;
-						} else {
-							description.textContent = descList[currentDesc];
-							currentChar = 0;
-						}
-					}, 400);
+				description.textContent = descList[currentDesc];
+				currentChar = 0;
 
-					setTimeout(() => {
-						clearInterval(typeCursor);
-						currentChar = descList[currentDesc].length;
+				typeCursor = setInterval(() => {
+					if(currentChar == 0) {
+						description.textContent = descList[currentDesc] + "|";
+						currentChar = 1;
+					} else {
+						description.textContent = descList[currentDesc];
+						currentChar = 0;
+					}
+				}, 400);
 
-						var remove = setInterval(() => {
-							description.textContent = descList[currentDesc].slice(0, currentChar);
-							currentChar -= 1;
+				setTimeout(() => {
+					clearInterval(typeCursor);
+					currentChar = descList[currentDesc].length;
 
-							if(currentChar == 0) {
+					var remove = setInterval(() => {
+						description.textContent = descList[currentDesc].slice(0, currentChar);
+						currentChar -= 1;
+
+						if(currentChar != 0) return;
+						clearInterval(remove);
+						
+						var previousDesc = currentDesc;
+						description.textContent = "";
+						currentChar = 0;
+
+						do currentDesc = Math.floor(Math.random() * descList.length);
+						while (currentDesc == previousDesc);
+
+						let endPointBlinking = false;
+						var endPoint = setInterval(() => {
+							if(!endPointBlinking) {
+								description.textContent = "|";
+								endPointBlinking = true;
+							} else {
 								description.textContent = "";
-								clearInterval(remove);
-								currentChar = 0;
-								currentDesc += 1;
-
-								setTimeout(() => {
-									updateDesc();
-								}, (Math.floor(Math.random() * 2) + 1) * 1000);
+								endPointBlinking = false;
 							}
-						}, 40);
-					}, (Math.floor(Math.random() * 3) + 2) * 1000);
-				}
+						}, 400);
+
+						setTimeout(() => {
+							clearInterval(endPoint);
+							updateDesc();
+						}, (Math.floor(Math.random() * 2) + 1) * 1000);
+					}, 40);
+				}, (Math.floor(Math.random() * 3) + 2) * 1000);
 			}, (Math.floor(Math.random * 4) + 1) == 3 ? 300 : 80);
 		}
 		updateDesc();
@@ -137,11 +150,11 @@ const App = () => {
 				</ul>
 			</div>
 			<div className="w-full h-screen absolute top-0 z-[-999]">
-				<div className="w-full h-full">
+				<div className="w-full h-full overflow-x-hidden">
 					<span className="text-3xl md:text-5xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 md:top-[45%] left-[7%] cursor-default select-none">
 						Welcome.
 					</span>
-					<span className="description text-xl md:text-2xl font-sourceCP bg-red-600 text-stone-700 dark:text-stone-400 relative top-[55%] md:top-1/2 left-[-10%]"></span>
+					<span className="description block text-xl md:text-2xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 w-[15rem] sm:w-[25rem] md:w-[35rem] md:top-[45%] left-[7%] cursor-default select-none"></span>
 				</div>
 			</div>
 		</>
