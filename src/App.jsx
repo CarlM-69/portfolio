@@ -115,7 +115,7 @@ const App = () => {
 
 	return (
 		<>
-			<div className="p-9 bg-gray-300 dark:bg-stone-800 md:bg-transparent md:dark:bg-transparent md:flex md:items-center md:justify-between">
+			<div className="p-9 bg-gray-300 dark:bg-stone-800 md:bg-transparent md:dark:bg-transparent md:flex md:items-center md:justify-between relative overflow-x-hidden">
 				<div className="flex justify-between items-center">
 					<span className="text-2xl font-jaro text-stone-900 dark:text-gray-200 cursor-default select-none">
 						<img src="./portfolio-icon.svg" alt="logo" draggable="false" className="h-7 inline mr-1" />
@@ -140,7 +140,7 @@ const App = () => {
 				<div className="w-full h-full">
 					<span className="text-3xl md:text-5xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 md:top-[45%] left-[7%] cursor-default select-none">
 						Welcome.
-						<span className="description block text-xl md:text-2xl w-[10rem] md:w-[30rem] text-stone-700 dark:text-stone-400"></span>
+						<span className="description block text-xl md:text-2xl w-[14rem] md:w-[30rem] text-stone-700 dark:text-stone-400"></span>
 					</span>
 				</div>
 			</div>
