@@ -140,7 +140,7 @@ const App = () => {
 				<div className="w-full h-full">
 					<span className="text-3xl md:text-5xl font-sourceCP text-stone-900 dark:text-gray-200 relative top-1/2 md:top-[45%] left-[7%] cursor-default select-none">
 						Welcome.
-						<span className="description block text-xl md:text-2xl w-[14rem] md:w-[30rem] text-stone-700 dark:text-stone-400 overflow-x-hidden"></span>
+						<span className="description block text-xl md:text-2xl w-[10rem] md:w-[30rem] text-stone-700 dark:text-stone-400"></span>
 					</span>
 				</div>
 			</div>
