@@ -44,6 +44,9 @@ jobs:
           name: production-files
           path: ./dist
 
+      - name: Keep CNAME File
+        run: echo "www.carlmathewgabay.top" > ./dist/CNAME && gh-pages -d build
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
