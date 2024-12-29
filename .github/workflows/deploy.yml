@@ -50,7 +50,7 @@ jobs:
       - name: Get Current Version
         id: get_version
         run: |
-          VERSION_FILE="version.txt"
+          VERSION_FILE="./dist/version.txt"
           TODAY=$(date +'%m.%d.%y')
           LAST_VERSION=$(cat $VERSION_FILE)
 
