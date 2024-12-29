@@ -1,0 +1,46 @@
+name: Auto Increment Version
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Current Version
+        id: get_version
+        run: |
+          VERSION_FILE="version.txt"
+          TODAY=$(date +'%m.%d.%y')
+          LAST_VERSION=$(cat $VERSION_FILE)
+
+          if [[ "$LAST_VERSION" == v$TODAY* ]]; then
+              if [[ "$LAST_VERSION" =~ _r([0-9]+)$ ]]; then
+                  REVISION_NUMBER=$(echo $LAST_VERSION | sed 's/.*_r\([0-9]*\)/\1/')
+                  NEW_REVISION=$((REVISION_NUMBER + 1))
+                  VERSION="v$TODAY"_r$NEW_REVISION
+              else
+                  VERSION="v$TODAY"_r1
+              fi
+          else
+              VERSION="v$TODAY"
+          fi
+
+          echo $VERSION > $VERSION_FILE
+          echo "New version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Commit and Push new version
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add version.txt
+          git commit -m "Increment version to ${{ env.VERSION }}"
+          git push
