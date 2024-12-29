@@ -215,7 +215,8 @@ const App = () => {
 					</span>
 					<span className="description block text-xl md:text-2xl font-sourceCP text-stone-900 dark:text-gray-100 relative w-[13rem] sm:w-[25rem] md:w-[35rem] top-1/2 md:top-[45%] left-[7%] cursor-default select-none" />
 				
-					<div className="w-[200px] h-[200px] bg-purple-900 rounded-full opacity-40 absolute right-" />
+					<div className="w-[200px] h-[200px] z-[-1000] bg-purple-900 rounded-full opacity-40 absolute top-[200px] right-[50px] md:right-[100px]" />
+					<div className="w-[200px] h-[200px] z-[-1000] bg-purple-900 rounded-full opacity-40 absolute top-[250px] right-[100px] md:right-[150px]" />
 				</div>
 			</div>
 
@@ -228,9 +229,9 @@ const App = () => {
 					I'm a {age}-year-old programmer based in the Philippines (GMT+8) with {age-9} years of experience in various programming environment.
 				</span>
 
-				<div className="boundToCenter hidden_element hidden_center_mobile sm:hidden_center_tablet md:hidden_center relative w-full flex justify-center items-center top-[900px] transition-all delay-300 duration-700">
+				<div className="boundToCenter hidden_element hidden_center_mobile sm:hidden_center_tablet md:hidden_center relative w-full flex justify-center items-center top-[800px] transition-all delay-300 duration-700">
 					<span className="text-2xl md:text-4xl font-sourceCP uppercase text-stone-900 dark:text-gray-100 cursor-default select-none">
-							Here's what I've worked on
+							Here is what I have worked on
 					</span>
 				</div>
 			</div>
