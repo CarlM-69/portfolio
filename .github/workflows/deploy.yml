@@ -47,6 +47,27 @@ jobs:
       - name: Keep CNAME File
         run: echo "www.carlmathewgabay.top" > ./dist/CNAME
 
+      - name: Get Current Version
+        id: get_version
+        run: |
+          VERSION_FILE="version.txt"
+          TODAY=$(date +'%m.%d.%y')
+          LAST_VERSION=$(cat $VERSION_FILE)
+
+          if [[ "$LAST_VERSION" == v$TODAY* ]]; then
+              if [[ "$LAST_VERSION" =~ _r([0-9]+)$ ]]; then
+                  REVISION_NUMBER=$(echo $LAST_VERSION | sed 's/.*_r\([0-9]*\)/\1/')
+                  NEW_REVISION=$((REVISION_NUMBER + 1))
+                  VERSION="v$TODAY"_r$NEW_REVISION
+              else
+                  VERSION="v$TODAY"_r1
+              fi
+          else
+              VERSION="v$TODAY"
+          fi
+
+          echo $VERSION > $VERSION_FILE
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
