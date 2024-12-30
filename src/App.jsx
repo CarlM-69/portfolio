@@ -6,7 +6,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 library.add(faBars)
 
 const App = () => {
-	const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+	const [theme, setTheme] = useState("dark");
 	const [age, setAge] = useState(1);
 
 	let hamborgarDebounce = false;
@@ -166,23 +166,23 @@ const App = () => {
 			}, (Math.floor(Math.random * 4) + 1) == 3 ? 300 : 80);
 		}
 		updateDesc();
-	});
+
+		setInterval(() => {
+			let initialAge = null;
+			const today = new Date();
+			const birthDate = new Date("01/12/2007");
+			initialAge = today.getFullYear() - birthDate.getFullYear()
+			const monthDiff = today.getMonth() - birthDate.getMonth();
+			const dayDiff = today.getDate() - birthDate.getDate();
+
+			if(monthDiff < 0 || (monthDiff == 0 && dayDiff < 0)) initialAge--;
+			setAge(initialAge);
+		}, 30000);
+	}, []);
 
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
 		setTheme(event.matches ? "dark" : "light");
 	});
-
-	setInterval(() => {
-		let initialAge = null;
-		const today = new Date();
-		const birthDate = new Date("01/12/2007");
-		initialAge = today.getFullYear() - birthDate.getFullYear()
-		const monthDiff = today.getMonth() - birthDate.getMonth();
-		const dayDiff = today.getDate() - birthDate.getDate();
-
-		if(monthDiff < 0 || (monthDiff == 0 && dayDiff < 0)) initialAge--;
-		setAge(initialAge);
-	}, 30000);
 
 	return (
 		<>
