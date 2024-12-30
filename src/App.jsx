@@ -373,7 +373,7 @@ const App = () => {
 					</span>
 				</div>
 
-				<div className="relative w-full flex flex-col md:flex-row gap-y-32 md:gap-y-0 justify-center top-[920px]">
+				<div className="relative w-full flex flex-col md:flex-row gap-y-[5rem] md:gap-y-0 justify-center top-[920px]">
 					<div className="boundToCenter hidden_element hidden_center_mobile sm:hidden_center_tablet md:hidden_center text-center font-nunito text-stone-900 dark:text-gray-100 md:w-[50px] md:h-[50px] md:basis-full my-3 md:my-0 md:mx-3 transition-all delay-[700ms] duration-700">
 						<span className="uppercase text-2xl md:text-xl">Game Development</span>
 
