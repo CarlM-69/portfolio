@@ -301,7 +301,7 @@ const App = () => {
 					</a>
 
 					<span className="text-3xl cursor-pointer md:hidden block mx-2">
-						<FontAwesomeIcon icon="fa-solid fa-bars" className="hamborgar transition-all duration-500" />
+						<FontAwesomeIcon icon="fa-solid fa-bars" className="hamborgar text-stone-900 dark:text-gray-100 transition-all duration-500" />
 					</span>
 				</div>
 
