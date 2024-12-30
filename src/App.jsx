@@ -44,114 +44,83 @@ const App = () => {
 					break;
 				}
 			}
+
+			function ballFunction(type) {
+				var levels = [
+					[ // level 0
+						["md:!top-[120px]", "!top-[250px]", "md:!right-[12.5rem]", "!right-[2.5rem]"], // ball 0
+						["md:!top-[250px]", "!top-[330px]", "md:!right-[21.875rem]", "!right-[6rem]"] // ball 1
+					],
+					[ // level 1
+						["md:!top-[800px]", "!top-[950px]", "md:!right-[63rem]", "!right-[8rem]"],
+						["md:!top-[900px]", "!top-[1050px]", "md:!right-[55rem]", "!right-[1rem]", "delay-300"]
+					],
+					[ // level 2
+						["md:!top-[1450px]", "!top-[1600px]", "md:!right-[5rem]", "!right-[2rem]"],
+						["md:!top-[1650px]", "!top-[1700px]", "md:!right-[15rem]", "!right-[5.5rem]"]
+					],
+					[ // level 3
+						["md:!top-[1651px]", "!top-[1601px]", "md:!right-[57rem]", "!right-[2.1rem]"],
+						["md:!top-[1800px]", "!top-[1701px]", "md:!right-[4rem]", "!right-[5.6rem]"]
+					],
+					[ // level 4
+						["!top-[2302px]", "!right-[2.31rem]"],
+						["!top-[2504px]", "!right-[7.21rem]"]
+					],
+					[ // level 5
+						["!top-[2900px]", "!right-[5.12rem]"],
+						["!top-[3000px]", "!right-[2.11rem]"]
+					]
+				];
+
+				for(let i = 0; i < levels.length; i++) {
+					if(type == "fix" && i == currentScrollLevel) continue;
+					else if(type == "move" && i != currentScrollLevel) continue;
+
+					for(let ii = 0; ii < levels[i].length; ii++) {
+						for(let iii = 0; iii < levels[i][ii].length; iii++) {
+							if(type == "fix") ball[ii].classList.remove(levels[i][ii][iii]);
+							else if(type == "move") ball[ii].classList.add(levels[i][ii][iii]);
+						}
+					}
+				}
+			}
 			
 			switch(true) {
 				case (scrollLocation < 250): {
 					if(currentScrollLevel == 0) break;
 					currentScrollLevel = 0;
-
-					ball[0].classList.add(
-						"md:!top-[120px]", "!top-[250px]",
-						"md:!right-[12.5rem]", "!right-[2.5rem]"
-					);
-	
-					ball[1].classList.add(
-						"md:!top-[250px]", "!top-[330px]",
-						"md:!right-[21.875rem]", "!right-[6rem]"
-					);
-					
-					ball[0].classList.remove(
-						"md:!top-[800px]", "!top-[950px]", // level 1
-						"md:!right-[63rem]", "!right-[8rem]",
-						"md:!top-[1450px]", "!top-[1600px]", // level 2
-						"md:!right-[5rem]", "!right-[2rem]"
-					);
-	
-					ball[1].classList.remove(
-						"md:!top-[900px]", "!top-[1050px]", // level 1
-						"md:!right-[55rem]", "!right-[1rem]",
-						"delay-300",
-						"md:!top-[1650px]", "!top-[1700px]", // level 2
-						"md:!right-[15rem]", "!right-[5.5rem]"
-					);
-
 					break;
 				}
 				case (scrollLocation >= 250 && scrollLocation < 900): {
 					if(currentScrollLevel == 1) break;
 					currentScrollLevel = 1;
-	
-					ball[0].classList.add(
-						"md:!top-[800px]", "!top-[950px]",
-						"md:!right-[63rem]", "!right-[8rem]"
-					);
-	
-					ball[1].classList.add(
-						"md:!top-[900px]", "!top-[1050px]",
-						"md:!right-[55rem]", "!right-[1rem]",
-						"delay-300"
-					);
-
-					ball[0].classList.remove(
-						"md:!top-[120px]", "!top-[250px]", // level 0
-						"md:!right-[12.5rem]", "!right-[2.5rem]",
-						"md:!top-[1450px]", "!top-[1600px]", // level 2
-						"md:!right-[5rem]", "!right-[2rem]"
-					);
-	
-					ball[1].classList.remove(
-						"md:!top-[250px]", "!top-[330px]", // level 0
-						"md:!right-[21.875rem]", "!right-[6rem]",
-						"md:!top-[1650px]", "!top-[1700px]", // level 2
-						"md:!right-[15rem]", "!right-[5.5rem]"
-					);
 					break;
 				}
 				case (scrollLocation >= 900 && scrollLocation < 1500): {
 					if(currentScrollLevel == 2) break;
 					currentScrollLevel = 2;
-
-					ball[0].classList.add(
-						"md:!top-[1450px]", "!top-[1600px]",
-						"md:!right-[5rem]", "!right-[2rem]"
-					);
-
-					ball[1].classList.add(
-						"md:!top-[1650px]", "!top-[1700px]",
-						"md:!right-[15rem]", "!right-[5.5rem]"
-					);
-
-					ball[0].classList.remove(
-						"md:!top-[120px]", "!top-[250px]", // level 0
-						"md:!right-[12.5rem]", "!right-[2.5rem]",
-						"md:!top-[800px]", "!top-[950px]", // level 1
-						"md:!right-[63rem]", "!right-[8rem]",
-					);
-	
-					ball[1].classList.remove(
-						"md:!top-[250px]", "!top-[330px]", // level 0
-						"md:!right-[21.875rem]", "!right-[6rem]",
-						"md:!top-[900px]", "!top-[1050px]", // level 1
-						"md:!right-[55rem]", "!right-[1rem]",
-					);
 					break;
 				}
-				case (scrollLocation >= 1500): {
+				case (scrollLocation >= 1500 && scrollLocation < 1900): {
 					if(currentScrollLevel == 3) break;
 					currentScrollLevel = 3;
-
-					ball[0].classList.add(
-						"md:!top-[1651px]", "!top-[1600px]",
-						"md:!right-[57rem]", "!right-[2rem]"
-					);
-
-					ball[1].classList.add(
-						"md:!top-[1800px]", "!top-[1700px]",
-						"md:!right-[4rem]", "!right-[5.5rem]"
-					);
+					break;
+				}
+				case (innerHeight < 768 && (scrollLocation >= 1900 && scrollLocation < 2400)): {
+					if(currentScrollLevel == 4) break;
+					currentScrollLevel = 4;
+					break;
+				}
+				case (innerHeight < 768 && (scrollLocation >= 2400 && scrollLocation < 3000)): {
+					if(currentScrollLevel == 5) break;
+					currentScrollLevel = 5;
 					break;
 				}
 			}
+
+			ballFunction("move");
+			ballFunction("fix");
 		}
 
 		window.addEventListener("scroll", () => {
