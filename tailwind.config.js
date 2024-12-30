@@ -11,15 +11,24 @@ export default {
 				jaro: ["Jaro", "serif"],
 				nunito: ["Nunito", "sans-serif"],
 				sourceCP: ["Source Code Pro", "monospace"]
+			},
+
+			keyframes: {
+				floatObj: {
+					"0%, 100%": { transform: "translate(0%, 0%)" },
+					"25%": { transform: "translate(5%, 15%)" },
+					"50%": { transform: "translate(10%, 5%)" },
+					"75%": { transform: "translate(0%, 15%)" }
+				}
 			}
-		},
+		}
 	},
 	plugins: [
 		function({ addComponents }) {
 			addComponents({
 				".hidden_element": {
 					opacity: 0,
-					filter: "blur(10px)"
+					filter: "blur(20px)"
 				},
 				".hidden_right": { transform: "translateX(-800px)" },
 				".hidden_right_tablet": { transform: "translateX(-500px)" },
