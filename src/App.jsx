@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { toWords } from "number-to-words";
 
 library.add(faBars)
 
@@ -9,6 +10,7 @@ const App = () => {
 	const [theme, setTheme] = useState("dark");
 	const [age, setAge] = useState(1);
 	const [time, setTime] = useState(null);
+	const [indf, setindf] = useState("a");
 
 	let hamborgarDebounce = false;
 	var typeCursor = null;
@@ -288,6 +290,7 @@ const App = () => {
 
 			setAge(initialAge);
 			setTime(timeGMT);
+			setindf(["a", "e", "i", "o", "u"].includes(toWords(initialAge)[0].toLowerCase()) ? "an" : "a");
 		}, 1000);
 	}, []);
 
@@ -333,7 +336,7 @@ const App = () => {
 					Hi, I'm Carl Mathew Gabay!
 				</span>
 				<span className="boundToRight hidden_element hidden_right_mobile sm:hidden_right_tablet md:hidden_right text-xs md:text-xl 2xl:text-2xl font-nunito text-stone-700 dark:text-gray-400 w-[70%] md:w-[50%] relative top-[490px] md:top-[540px] 2xl:top-[500px] float-right right-[40px] md:right-[-240px] 2xl:right-[-380px] transition-all delay-300 duration-700 text-right cursor-default select-none">
-					I'm a {age}-year-old programmer based in the Philippines (GMT+8 | <i>{time}</i>) with <b>{age-9} years of experience</b> in various programming environment.
+					I'm {indf} {age}-year-old programmer based in the Philippines (GMT+8 | <i>{time}</i>) with <b>{age-9} years of experience</b> in various programming environment.
 				</span>
 
 				<div className="boundToCenter hidden_element hidden_center_mobile sm:hidden_center_tablet md:hidden_center exp_title relative w-full flex justify-center items-center top-[800px] transition-all duration-700">
