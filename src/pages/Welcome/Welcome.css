@@ -1,13 +1,28 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
-	.something {
-		@apply flex justify-center items-center h-screen w-full;
+	* {
+		@apply box-border;
 	}
 
-	.something span {
-		@apply text-4xl;
+	html {
+		@apply scroll-smooth overflow-x-hidden;
+	}
+
+	body {
+		@apply mx-0;
+	}
+
+	.bg {
+		@apply fixed top-0 w-screen h-screen;
+		@apply bg-[url('/background.svg')] bg-cover bg-no-repeat bg-fixed;
+
+		@apply md:!bg-[center_-36.5vh]; /* desktop */
+		@apply bg-[-12vh]; /* mobile */
+	}
+
+	.bg-gradient {
+		@apply absolute top-0 w-full h-screen z-[-999];
+		@apply bg-gradient-to-t from-orange-950 to-transparent;
 	}
 }
