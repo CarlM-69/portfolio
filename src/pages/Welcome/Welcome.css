@@ -1,16 +1,8 @@
 @tailwind base;
 
 @layer base {
-	* {
-		@apply box-border;
-	}
-
-	html {
-		@apply scroll-smooth overflow-x-hidden;
-	}
-
 	body {
-		background: linear-gradient(to top, #431407, rgba(251, 191, 36, 0.5)), url('/background.svg');
+		background: linear-gradient(to top, #431407, rgba(251, 191, 36, 0.5)), url('/svg/background.svg');
 		@apply bg-no-repeat bg-fixed bg-cover;
 	}
 
@@ -47,7 +39,8 @@
 	}
 
 	.container:nth-of-type(1) .down-arrow img {
-		@apply aspect-square;
+		@apply aspect-square cursor-pointer select-none;
+		@apply animate-[bounce_2s_ease-in-out_infinite];
 
 		@apply w-5;
 		@apply sm:!w-10;

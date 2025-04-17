@@ -1,0 +1,11 @@
+@tailwind base;
+
+@layer base {
+    * {
+		@apply box-border;
+	}
+
+	html {
+		@apply scroll-smooth overflow-x-hidden;
+	}
+}

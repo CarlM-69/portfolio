@@ -1,3 +1,4 @@
+import "../../css/global.css";
 import "./Welcome.css";
 
 export default function Welcome() {
@@ -7,7 +8,7 @@ export default function Welcome() {
 				<span className="main-title">MY PORTFOLIO</span>
 				<span className="main-subtitle" id="subtitle">I'm Carl Mathew Gabay.</span>
 				<div className="down-arrow">
-					<img src="/down-arrow.svg" alt="arrow down indicator" draggable="false" />
+					<img src="/svg/down-arrow.svg" alt="arrow down indicator" draggable="false" />
 				</div>
 			</div>
 			<div className="container">
