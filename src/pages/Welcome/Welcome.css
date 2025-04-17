@@ -20,23 +20,37 @@
 
 	.container:nth-of-type(1) {
 		@apply flex items-center flex-col;
-		@apply mt-[30vh];
+
+		@apply md:!mt-[30vh];
+		@apply mt-[40vh];
 	}
 
 	.container:nth-of-type(1) .main-title {
-		@apply text-9xl font-bold text-white uppercase;
+		@apply font-bold text-white uppercase;
+
+		@apply text-[12vw];
+		@apply sm:!text-[9vw];
 	}
 
 	.container:nth-of-type(1) .main-subtitle {
-		@apply text-2xl font-light text-white/80;
+		@apply font-light text-white/80;
+
+		@apply text-[4.5vw] mt-[-2.5vw];
+		@apply sm:!text-[1.6vw] sm:!mt-[-2vw];
 	}
 
 	.container:nth-of-type(1) .down-arrow {
-		@apply absolute bottom-72;
+		@apply absolute;
+
+		@apply bottom-[50%];
+		@apply sm:!bottom-[40%];
 	}
 
-	.container:nth-of-type(1) .down-arrow svg {
-		@apply aspect-square w-16 h-16;
+	.container:nth-of-type(1) .down-arrow img {
+		@apply aspect-square;
+
+		@apply w-5;
+		@apply sm:!w-10;
 	}
 
 	.container:nth-of-type(2) {

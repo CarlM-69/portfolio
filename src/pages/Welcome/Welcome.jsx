@@ -7,9 +7,7 @@ export default function Welcome() {
 				<span className="main-title">MY PORTFOLIO</span>
 				<span className="main-subtitle" id="subtitle">I'm Carl Mathew Gabay.</span>
 				<div className="down-arrow">
-					<svg>
-						<use xlinkHref="/down-arrow.svg" />
-					</svg>
+					<img src="/down-arrow.svg" alt="arrow down indicator" draggable="false" />
 				</div>
 			</div>
 			<div className="container">
