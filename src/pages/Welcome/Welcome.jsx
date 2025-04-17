@@ -8,7 +8,7 @@ export default function Welcome() {
 				<span className="main-subtitle" id="subtitle">I'm Carl Mathew Gabay.</span>
 				<div className="down-arrow">
 					<svg>
-						<use href="/down-arrow.svg" />
+						<use xlinkHref="/down-arrow.svg" />
 					</svg>
 				</div>
 			</div>
