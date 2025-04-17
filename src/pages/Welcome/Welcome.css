@@ -32,7 +32,7 @@
 
 	.container:nth-of-type(1) {
 		@apply flex items-center flex-col;
-		@apply mt-52;
+		@apply mt-[30vh];
 	}
 
 	.container:nth-of-type(1) .main-title {
@@ -41,6 +41,14 @@
 
 	.container:nth-of-type(1) .main-subtitle {
 		@apply text-2xl font-light text-white/80;
+	}
+
+	.container:nth-of-type(1) .down-arrow {
+		@apply absolute bottom-72;
+	}
+
+	.container:nth-of-type(1) .down-arrow svg {
+		@apply aspect-square w-16 h-16;
 	}
 
 	.container:nth-of-type(2) {

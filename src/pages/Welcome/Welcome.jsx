@@ -6,7 +6,11 @@ export default function Welcome() {
 			<div className="container">
 				<span className="main-title">MY PORTFOLIO</span>
 				<span className="main-subtitle" id="subtitle">I'm Carl Mathew Gabay. </span>
-				
+				<div className="down-arrow">
+					<svg>
+						<use href="/down-arrow.svg#star" />
+					</svg>
+				</div>
 			</div>
 			<div className="container">
 
