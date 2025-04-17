@@ -17,12 +17,13 @@
 		@apply fixed top-0 w-screen h-screen z-[-999];
 		@apply bg-[url('/background.svg')] bg-cover bg-no-repeat;
 
-		@apply md:!bg-[center_-16vh]; /* desktop */
-		@apply bg-[-12vh]; /* mobile */
+		@apply md:!bg-[center_70%];
+		@apply sm:!bg-[4%_5rem];
+		@apply bg-[17%_-3.5rem];
 	}
 
 	.bg-gradient {
-		@apply absolute top-0 w-full h-screen;
+		@apply absolute top-0 w-full h-[101vh];
 		@apply bg-gradient-to-t from-orange-950 to-amber-600/50;
 	}
 
