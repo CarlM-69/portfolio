@@ -17,7 +17,7 @@
 		@apply fixed top-0 w-screen h-screen z-[-999];
 		@apply bg-[url('/background.svg')] bg-cover bg-no-repeat;
 
-		@apply md:!bg-[center_-36.5vh]; /* desktop */
+		@apply md:!bg-[center_-16vh]; /* desktop */
 		@apply bg-[-12vh]; /* mobile */
 	}
 
