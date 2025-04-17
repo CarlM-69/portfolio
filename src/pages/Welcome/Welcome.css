@@ -14,15 +14,36 @@
 	}
 
 	.bg {
-		@apply fixed top-0 w-screen h-[500vh];
-		@apply bg-[url('/background.svg')] bg-cover bg-no-repeat bg-fixed;
+		@apply fixed top-0 w-screen h-screen z-[-999];
+		@apply bg-[url('/background.svg')] bg-cover bg-no-repeat;
 
 		@apply md:!bg-[center_-36.5vh]; /* desktop */
 		@apply bg-[-12vh]; /* mobile */
 	}
 
 	.bg-gradient {
-		@apply absolute top-0 w-full h-screen z-[-999];
-		@apply bg-gradient-to-t from-orange-950 to-transparent;
+		@apply absolute top-0 w-full h-screen;
+		@apply bg-gradient-to-t from-orange-950 to-amber-600/50;
+	}
+
+	.container {
+		@apply relative w-full h-screen py-10 z-[10];
+	}
+
+	.container:nth-of-type(1) {
+		@apply flex items-center flex-col;
+		@apply mt-52;
+	}
+
+	.container:nth-of-type(1) .main-title {
+		@apply text-9xl font-bold text-white uppercase;
+	}
+
+	.container:nth-of-type(1) .main-subtitle {
+		@apply text-2xl font-light text-white/80;
+	}
+
+	.container:nth-of-type(2) {
+		@apply bg-white;
 	}
 }
