@@ -24,18 +24,12 @@ export default function Welcome() {
 
 		window.addEventListener("resize", (e) => {
 			let width = window.innerWidth;
-			// console.log(width, device);
 
 			if(width < 768) setDevice("mobile");
 			else if(width < 1024) setDevice("tablet");
 			else if(width >= 1280) setDevice("desktop");
 		});
 	}, []);
-
-	useEffect(() => {
-		let width = window.innerWidth;
-		console.log(width, device);
-	}, [device]);
 
 	return (
 		<>
@@ -47,7 +41,18 @@ export default function Welcome() {
 				</div>
 			</div>
 			<div className="container">
-
+				<div className="box-wrapper">
+					<div className="box">
+						<div className="item"></div>
+						<div className="item"></div>
+						<div className="item"></div>
+						<div className="item"></div>
+						<div className="item"></div>
+					</div>
+				</div>
+			</div>
+			<div className="container">
+				<span id="asd">asd</span>
 			</div>
 			<div className="container">
 				<span id="asd">asd</span>
