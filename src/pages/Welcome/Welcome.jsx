@@ -10,6 +10,7 @@ export default function Welcome() {
 	useEffect(() => {
 		const redirect_2ndpage = document.querySelector("#redirect-to-2nd-page");
 		const redirect_2ndpage_dest = document.querySelector("#asd");
+		const social_discord = document.querySelector(".media-pop_up");
 
 		redirect_2ndpage.addEventListener("click", () => {
 			redirect_2ndpage_dest.scrollIntoView({
@@ -30,6 +31,8 @@ export default function Welcome() {
 			else if(width < 1024) setDevice("tablet");
 			else if(width >= 1280) setDevice("desktop");
 		});
+
+		
 	}, []);
 
 	return (
@@ -51,7 +54,13 @@ export default function Welcome() {
 			<div className="container">
 				<span className="message">Thank you for taking the time to check out my portfolio! I hugely appreciate your consideration to invite me and contribute my skills on your project. I can say that I'm confident enough to bring value and quality to the work and looking forward to be one of the member of your team and the production!</span>
 				<div className="social-media">
-					<img src="/svg/social/discord.svg" alt="discord" draggable="false" className="media" />
+					<div className="media">
+						<div className="pop-up">
+							<span>Tag: carl.hahah</span>
+							<span>ID: 308940153001476097</span>
+						</div>
+						<img src="/svg/social/discord.svg" alt="discord" draggable="false" className="media-pop_up" />
+					</div>
 					<a href="https://www.facebook.com/carlmathewgabay" target="_blank" className="media"><img src="/svg/social/facebook.svg" alt="facebook" draggable="false" /></a>
 					<a href="https://github.com/CarlM-69" target="_blank" className="media"><img src="/svg/social/github.svg" alt="github" draggable="false" /></a>
 					<a href="https://www.instagram.com/crl.carl.crl.carl.crl.carl/" target="_blank" className="media"><img src="/svg/social/instagram.svg" alt="instagram" draggable="false" /></a>
