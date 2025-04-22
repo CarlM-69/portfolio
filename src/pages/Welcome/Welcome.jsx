@@ -6,11 +6,6 @@ import emailjs from "@emailjs/browser";
 
 export default function Welcome() {
 	const [device, setDevice] = useState("");
-	const [messenger, setMessenger] = useState({
-		sender: "",
-		sender_email: "",
-		sender_message: ""
-	});
 
 	useEffect(() => {
 		const redirect_2ndpage = document.querySelector("#redirect-to-2nd-page");
@@ -70,27 +65,22 @@ export default function Welcome() {
 				message_message.children[0].children[0].src = "/svg/xmark.svg";
 			}
 
-			if(messenger.sender_email == 0) {
+			if(fillups[1].value.length == 0) {
 				error_message("EMAIL ADDRESS IS REQUIRED!");
 				return;
 			}
 
-			if(messenger.sender_message == 0) {
+			if(fillups[2].value.length == 0) {
 				error_message("MESSAGE IS REQUIRED!");
 				return;
 			}
 
-			if(messenger.sender_message < 64) {
-
-				error_message("MESSAGE LENGTH SHOULD BE AT LEAST 64 CHARACTERS!");
+			if(fillups[2].value.length < 64) {
+				error_message(`MESSAGE LENGTH SHOULD BE AT LEAST 64 CHARACTERS!\n\n (${ fillups[2].value.length } character${ fillups[2].value.length == 1 ? "" : "s" })`);
 				return;
 			}
 
-			emailjs.send("service_75jihf7","template_jkha2gu", {
-				sender_name: messenger.sender,
-				sender: messenger.sender_email,
-				message: messenger.sender_message
-			}).then(() => {
+			emailjs.send("service_75jihf7","template_jkha2gu", this).then(() => {
 				message_message.children[1].innerText = "MESSAGE SENT!";
 				message_message.classList.add("show-message-sent-success");
 
@@ -181,16 +171,16 @@ export default function Welcome() {
 					<div className="section">
 						<div className="inner">
 							<label htmlFor="sender_name">Full Name (Optional)</label>
-							<input type="text" id="sender_name" name="sender_name" onChange={ (e) => setMessenger({ ...messenger, sender: e.target.value }) } />
+							<input type="text" id="sender_name" name="sender_name" />
 						</div>
 						<div className="inner">
 							<label htmlFor="sender">Email Address</label>
-							<input type="email" id="sender" name="sender" onChange={ (e) => setMessenger({ ...messenger, sender_email: e.target.value }) } />
+							<input type="email" id="sender" name="sender" />
 						</div>
 					</div>
 					<div className="section">
 						<label htmlFor="message">Message</label>
-						<textarea id="message" name="message" rows="5" onChange={ (e) => setMessenger({ ...messenger, sender_message: e.target.value }) }></textarea>
+						<textarea id="message" name="message" rows="5"></textarea>
 					</div>
 					<div className="section">
 						<input type="submit" value="Submit a Message" id="submit-btn" />
