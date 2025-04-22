@@ -19,36 +19,52 @@ export default function Welcome() {
 			document.querySelector("#message")
 		];
 		var list_of_subtitles = [
-			"A student.",
-			"An aspiring software engineer.",
-			"18 years old.",
-			"From Far Eastern University!",
-			"Creative in mind.",
-			"Excellence in mind.",
-			"Born to succeed."
+			" A student.",
+			" An aspiring software engineer.",
+			" 18 years old.",
+			" From Far Eastern University!",
+			" Creative in mind.",
+			" Excellence in mind.",
+			" Born to succeed."
 		];
+		var static_text = "I'm Carl Mathew Gabay.";
+		var cursorShown = false;
+		const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+		
+		function renderCursor(add) {
+			subtitle.textContent = static_text + add + (cursorShown ? "|" : "");
+			cursorShown = !cursorShown;
+		}
 
-		(async function typingEffect() {
-			const wait = ms => new Promise(res => setTimeout(res, ms));
-		  
-			let index = 0;
-			try {
-			  while (true) {
-				const text = list_of_subtitles[index];
+		async function typeEffect() {
+			while(true) {
+				for(const sentence of list_of_subtitles) {
+					subtitle.textContent = static_text;
 
-				for (let char of text) {
-				  subtitle.textContent += char;
-				  await wait(100);
-				}
-				await wait(1000);
-				for (let i = subtitle.textContent.length; i > 0; i--) {
-				  subtitle.textContent = subtitle.textContent.substring(0, i - 1);
-				  await wait(50);
-				}
-				index = (index + 1) % list_of_subtitles.length;
-			  }
-			} catch(err) {}
-		  })();
+					var activeCursor = setInterval(renderCursor, 450, "");
+					await sleep(Math.floor((Math.random() * 1500) + 1500));
+					clearInterval(activeCursor);
+					
+					var charSet = "";
+					for(const char of sentence) {
+						charSet += char;
+						subtitle.textContent = static_text + charSet + "|";
+						await sleep(100);
+					}
+
+					var activeCursor = setInterval(renderCursor, 450, charSet);
+					await sleep(Math.floor((Math.random() * 1000) + 1500));
+					clearInterval(activeCursor);
+
+					for(let i = charSet.length; i > 0; i--) {
+						charSet = charSet.substring(0, i);
+						subtitle.textContent = static_text + charSet + "|";
+						await sleep(70);
+					}
+				};
+			}
+		}
+		typeEffect();
 
 		redirect_2ndpage.addEventListener("click", () => {
 			redirect_2ndpage_dest.scrollIntoView({

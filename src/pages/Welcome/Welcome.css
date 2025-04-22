@@ -22,10 +22,10 @@
 	}
 
 	.container:nth-of-type(1) .main-subtitle {
-		@apply font-light text-white/80;
+		@apply font-light text-white/80 block text-center;
 
-		@apply text-[4.5vw] mt-[-2.5vw];
-		@apply sm:!text-[1.6vw] sm:!mt-[-2vw];
+		@apply text-[4.5vw] mt-[-2.5vw] w-4/5;
+		@apply sm:!text-[1.6vw] sm:!mt-[-2vw] sm:!w-full;
 	}
 
 	.container:nth-of-type(1) .down-arrow {
