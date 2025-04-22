@@ -39,44 +39,40 @@ export default function Welcome() {
 
 	useEffect(() => {
 		const social_discord = document.querySelector(".media-pop_up");
-		const social_discord_box = document.querySelector(".pop-up");
-		let allow_copy = false;
+		const social_discord_box  = document.querySelector(".pop-up");
+		const hint   = social_discord_box.querySelector("span:nth-child(2)");
 	
-		const social_discord_mouseover = () => {
-			social_discord_box.querySelector("span:nth-child(2)").innerText = device === "desktop" ? "Double click to copy." : "Click to copy.";
+		const show = () => {
+			hint.innerText = device == "desktop" ? "Double click to copy." : "Tap again to copy.";
 			social_discord_box.classList.add("show");
-			if (device !== "desktop") allow_copy = true;
+	
+			if(device != "desktop") social_discord.addEventListener("click", copy, { once: true });
 		};
 	
-		const social_discord_mouseout = () => {
-			social_discord_box.classList.remove("show");
-			if (device !== "desktop") allow_copy = false;
-		};
-	
-		const social_discord_click = (e) => {
+		const hide = () => social_discord_box.classList.remove("show");
+		
+		const copy = (e) => {
 			if (device === "desktop" && e.type !== "dblclick") return;
-			if (device !== "desktop" && !allow_copy) return;
-	
 			navigator.clipboard.writeText("carl.hahah");
-			social_discord_box.querySelector("span:nth-child(2)").innerText = "Copied!";
+			hint.innerText = "Copied!";
 		};
 	
-		social_discord?.removeEventListener("mouseover", social_discord_mouseover);
-		social_discord?.removeEventListener("mouseout", social_discord_mouseout);
-		social_discord?.removeEventListener("click", social_discord_mouseover);
-		social_discord?.removeEventListener("click", social_discord_click);
-		social_discord?.removeEventListener("dblclick", social_discord_click);
+		const events = device == "desktop" ? [
+			["mouseover", show],
+			["mouseout", hide],
+			["dblclick", copy]
+		] : [
+			["click", show],
+			["mouseout", hide]
+		];
 	
-		if (device === "desktop") {
-			social_discord?.addEventListener("mouseover", social_discord_mouseover);
-			social_discord?.addEventListener("mouseout", social_discord_mouseout);
-			social_discord?.addEventListener("dblclick", social_discord_click);
-		} else {
-			social_discord?.addEventListener("click", social_discord_mouseover);
-			social_discord?.addEventListener("click", social_discord_click);
-			social_discord?.addEventListener("mouseout", social_discord_mouseout);
-		}
-	}, [device]);	
+		events.forEach(([e, func]) => social_discord.addEventListener(e, func));
+	
+		return () => {
+			events.forEach(([e, func]) => social_discord.removeEventListener(e, func));
+		};
+	}, [device]);
+	
 
 	return (
 		<>
