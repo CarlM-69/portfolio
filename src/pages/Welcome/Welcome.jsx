@@ -39,8 +39,8 @@ export default function Welcome() {
 
 	useEffect(() => {
 		const social_discord = document.querySelector(".media-pop_up");
-		const social_discord_box  = document.querySelector(".pop-up");
-		const hint   = social_discord_box.querySelector("span:nth-child(2)");
+		const social_discord_box = document.querySelector(".pop-up");
+		const hint = social_discord_box.querySelector("span:nth-child(2)");
 	
 		const show = () => {
 			hint.innerText = device == "desktop" ? "Double click to copy." : "Tap again to copy.";
@@ -50,9 +50,9 @@ export default function Welcome() {
 		};
 	
 		const hide = () => social_discord_box.classList.remove("show");
-		
+
 		const copy = (e) => {
-			if (device === "desktop" && e.type !== "dblclick") return;
+			if (device == "desktop" && e.type != "dblclick") return;
 			navigator.clipboard.writeText("carl.hahah");
 			hint.innerText = "Copied!";
 		};
@@ -72,7 +72,6 @@ export default function Welcome() {
 			events.forEach(([e, func]) => social_discord.removeEventListener(e, func));
 		};
 	}, [device]);
-	
 
 	return (
 		<>
