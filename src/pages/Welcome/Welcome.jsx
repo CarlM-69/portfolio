@@ -8,13 +8,13 @@ export default function Welcome() {
 	const [device, setDevice] = useState("");
 
 	useEffect(() => {
-		let width = window.innerWidth;
-		if(width < 768) setDevice("mobile");
-		else if(width < 1024) setDevice("tablet");
-		else if(width >= 1280) setDevice("desktop");
-
 		const redirect_2ndpage = document.querySelector("#redirect-to-2nd-page");
-		const redirect_2ndpage_dest = document.querySelector("#asd");
+		const redirect_2ndpage_dest = document.querySelector("#preview-container");
+		const fillups = [
+			document.querySelector("#sender_name"),
+			document.querySelector("#sender"),
+			document.querySelector("#message")
+		];
 
 		redirect_2ndpage.addEventListener("click", () => {
 			redirect_2ndpage_dest.scrollIntoView({
@@ -23,17 +23,31 @@ export default function Welcome() {
 			});
 		});
 
-		window.addEventListener("scroll", () => {
-			let scroll = window.scrollY;
-			console.log(scroll);
-		});
-
-		window.addEventListener("resize", () => {
+		function getDevice() {
 			let width = window.innerWidth;
 
 			if(width < 768) setDevice("mobile");
 			else if(width < 1024) setDevice("tablet");
 			else if(width >= 1280) setDevice("desktop");
+		}
+
+		window.addEventListener("resize", getDevice);
+		getDevice();
+
+		fillups.forEach((e) => {
+			var label = e.parentElement.children[0];
+
+			e.addEventListener("focusin", () => {
+				label.classList.add("input-on-focus-for-label");
+				e.classList.add("input-on-focus-for-input");
+			});
+
+			e.addEventListener("focusout", () => {
+				if(e.value.length > 0) return;
+
+				label.classList.remove("input-on-focus-for-label");
+				e.classList.remove("input-on-focus-for-input");
+			});
 		});
 	}, []);
 
@@ -82,7 +96,7 @@ export default function Welcome() {
 					<img src="/svg/down-arrow.svg" alt="arrow down indicator" draggable="false" />
 				</div>
 			</div>
-			<div className="container">
+			<div className="container" id="preview-container">
 				<div className="box-wrapper">
 					<div className="box">
 
@@ -90,7 +104,7 @@ export default function Welcome() {
 				</div>
 			</div>
 			<div className="container">
-				<span className="message">Thank you for taking the time to check out my portfolio! I hugely appreciate your consideration to invite me and contribute my skills on your project. I can say that I'm confident enough to bring value and quality to the work and looking forward to be one of the member of your team and the production!</span>
+				<span className="message">Thank you for taking the time to check out my portfolio! I hugely appreciate your consideration on inviting me and to contribute my skills on your project. I can say that I'm confident enough to bring value and quality to the work. I'll be looking forward to be one of the member of your team and the production!</span>
 				<div className="social-media">
 					<div className="media">
 						<div className="pop-up">
@@ -106,9 +120,29 @@ export default function Welcome() {
 					<a href="https://stackoverflow.com/users/22312537/carlll" target="_blank" className="media"><img src="/svg/social/stackoverflow.svg" alt="stackoverflow" draggable="false" /></a>
 					<a href="https://wa.me/639350061735" target="_blank" className="media"><img src="/svg/social/whatsapp.svg" alt="whatsapp" draggable="false" /></a>
 				</div>
+				<span className="message">Let's get in touch!</span>
+				<form className="message-me">
+					<div className="section">
+						<div className="inner">
+							<label htmlFor="sender_name">Full Name (Optional)</label>
+							<input type="text" id="sender_name" name="sender_name" />
+						</div>
+						<div className="inner">
+							<label htmlFor="sender">Email Address</label>
+							<input type="email" id="sender" name="sender" />
+						</div>
+					</div>
+					<div className="section">
+						<label htmlFor="message">Message</label>
+						<textarea id="message" name="message" rows="5"></textarea>
+					</div>
+					<div className="section">
+						<input type="submit" value="Submit a Message" id="submit-btn" />
+					</div>
+				</form>
 			</div>
 			<div className="container">
-				<span id="asd">asd</span>
+				<span>Officially developed by Carl Mathew Gabay™ using React JS with Tailwind CSS. Powered by Github Pages. © 2025</span>
 			</div>
 		</>
 	)

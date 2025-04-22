@@ -71,6 +71,10 @@
 		@apply sm:!w-[40%];
 	}
 
+	.container:nth-of-type(3) .message:nth-of-type(2) {
+		@apply mt-14;
+	}
+
 	.container:nth-of-type(3) .social-media {
 		@apply w-[80%] flex justify-center flex-wrap mt-20;
 	}
@@ -81,6 +85,11 @@
 
 	.container:nth-of-type(3) .social-media img {
 		@apply w-10 h-10;
+		@apply duration-200;
+	}
+
+	.container:nth-of-type(3) .social-media img:hover {
+		@apply scale-125;
 	}
 
 	.container:nth-of-type(3) .social-media div.media {
@@ -88,7 +97,7 @@
 	}
 
 	.container:nth-of-type(3) .social-media div.media .pop-up {
-		@apply opacity-0 absolute p-3 w-[11rem] pointer-events-none;
+		@apply opacity-0 absolute p-3 w-[11rem] pointer-events-none scale-75;
 		@apply bg-white rounded-xl;
 		@apply duration-300;
 	}
@@ -102,6 +111,131 @@
 	}
 
 	.show {
-		@apply !opacity-100 -translate-y-16;
+		@apply !opacity-100 -translate-y-16 !scale-100;
+	}
+
+	.container:nth-of-type(3) .message-me {
+		@apply mt-10;
+		@apply flex flex-col items-center;
+
+		@apply w-[90%];
+		@apply sm:!w-[85%];
+		@apply md:!w-[80%];
+		@apply lg:!w-[50%];
+	}
+
+	.container:nth-of-type(3) .message-me .section {
+		@apply w-full;
+
+		@apply py-1;
+		@apply sm:!py-5;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) {
+		@apply flex;
+
+		@apply flex-col;
+		@apply sm:!flex-row;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner {
+		@apply relative flex items-center;
+
+		@apply w-full py-2;
+		@apply sm:!w-1/2 sm:!px-5;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner label,
+	.container:nth-of-type(3) .message-me .section:nth-of-type(2) label {
+		@apply absolute pointer-events-none;
+		@apply font-semibold bg-orange-100 px-2;
+		@apply duration-200;
+
+		@apply left-4;
+		@apply sm:!left-9;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(2) label {
+		@apply top-3;
+		@apply sm:!top-8;
+	}
+
+	.input-on-focus-for-label {
+		@apply text-amber-800;
+		@apply -translate-y-5 text-sm;
+		@apply sm:!-translate-y-5 sm:!text-xs;
+	}
+
+	.input-on-focus-for-input {
+		@apply !border-amber-800;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(2) {
+		@apply relative w-full;
+
+		@apply px-0;
+		@apply sm:!px-5;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner input {
+		@apply px-3 w-full h-10 rounded-md;
+		@apply outline-none border-[1px] border-slate-950 bg-transparent;
+		@apply duration-200;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner input:-webkit-autofill,
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner input:-webkit-autofill:hover, 
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner input:-webkit-autofill:focus, 
+	.container:nth-of-type(3) .message-me .section:nth-of-type(1) .inner input:-webkit-autofill:active{
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: black;
+		transition: background-color 5000s ease-in-out 0s;
+		box-shadow: inset 0 0 20px 20px rgb(255, 237, 213, 255);
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(2) textarea {
+		@apply px-3 py-3 w-full h-auto rounded-md resize-y;
+		@apply outline-none border-[1px] border-slate-950 bg-transparent;
+		@apply duration-200;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(3) {
+		@apply w-full flex justify-center;
+		
+		@apply mt-10;
+		@apply sm:!mt-0;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(3) input {
+		@apply rounded-md cursor-pointer;
+		@apply outline-none bg-amber-800;
+		@apply uppercase text-orange-100;
+		@apply duration-100;
+
+		@apply p-2 text-base font-bold tracking-wide;
+		@apply sm:!p-3 sm:!text-lg sm:!font-black sm:!tracking-wider;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(3) input:hover {
+		@apply scale-105 bg-amber-900;
+	}
+
+	.container:nth-of-type(3) .message-me .section:nth-of-type(3) input:active {
+		@apply scale-100 bg-amber-800;
+	}
+
+	.container:nth-of-type(4) {
+		@apply h-auto pb-12 pt-24;
+
+		@apply pb-10 pt-[4.5rem];
+		@apply sm:!pb-12 sm:!pt-24;
+	}
+
+	.container:nth-of-type(4) span {
+		@apply w-full block text-center;
+		@apply bg-white;
+
+		@apply py-3 px-8 text-[8pt];
+		@apply sm:!p-4 sm:!text-xs;
 	}
 }
