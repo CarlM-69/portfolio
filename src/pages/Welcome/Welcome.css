@@ -89,7 +89,7 @@
 
 	.container:nth-of-type(3) .social-media div.media .pop-up {
 		@apply opacity-0 absolute p-3 w-[11rem] pointer-events-none;
-		@apply bg-white rounded-md;
+		@apply bg-white rounded-xl;
 		@apply duration-300;
 	}
 

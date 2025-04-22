@@ -6,9 +6,6 @@ import emailjs from "@emailjs/browser";
 
 export default function Welcome() {
 	const [device, setDevice] = useState("");
-	var social_discord_mouseover;
-	var social_discord_mouseout;
-	var social_discord_click;
 
 	useEffect(() => {
 		let width = window.innerWidth;
@@ -26,12 +23,12 @@ export default function Welcome() {
 			});
 		});
 
-		window.addEventListener("scroll", (e) => {
+		window.addEventListener("scroll", () => {
 			let scroll = window.scrollY;
 			console.log(scroll);
 		});
 
-		window.addEventListener("resize", (e) => {
+		window.addEventListener("resize", () => {
 			let width = window.innerWidth;
 
 			if(width < 768) setDevice("mobile");
@@ -41,32 +38,45 @@ export default function Welcome() {
 	}, []);
 
 	useEffect(() => {
-		console.log(device);
 		const social_discord = document.querySelector(".media-pop_up");
 		const social_discord_box = document.querySelector(".pop-up");
 		let allow_copy = false;
-
-		removeEventListener("mouseover", social_discord_mouseover);
-		removeEventListener("mouseout", social_discord_mouseout);
-		removeEventListener("click", social_discord_click);
-
-		social_discord_mouseover = social_discord.addEventListener((device == "desktop" ? "mouseover" : "click"), () => {
-			social_discord_box.querySelector("span:nth-child(2)").innerText = (device == "desktop" ? "Double click to copy." : "Click to copy.");
+	
+		const social_discord_mouseover = () => {
+			social_discord_box.querySelector("span:nth-child(2)").innerText = device === "desktop" ? "Double click to copy." : "Click to copy.";
 			social_discord_box.classList.add("show");
-			allow_copy = true;
-		});
-
-		social_discord_mouseout = social_discord.addEventListener("mouseout", () => {
+			if (device !== "desktop") allow_copy = true;
+		};
+	
+		const social_discord_mouseout = () => {
 			social_discord_box.classList.remove("show");
-			allow_copy = false;
-		});
-
-		social_discord_click = social_discord.addEventListener((device == "desktop" ? "dblclick" : "click"), () => {
-			if(!allow_copy) return; 
+			if (device !== "desktop") allow_copy = false;
+		};
+	
+		const social_discord_click = (e) => {
+			if (device === "desktop" && e.type !== "dblclick") return;
+			if (device !== "desktop" && !allow_copy) return;
+	
 			navigator.clipboard.writeText("carl.hahah");
 			social_discord_box.querySelector("span:nth-child(2)").innerText = "Copied!";
-		});
-	}, [device]);
+		};
+	
+		social_discord?.removeEventListener("mouseover", social_discord_mouseover);
+		social_discord?.removeEventListener("mouseout", social_discord_mouseout);
+		social_discord?.removeEventListener("click", social_discord_mouseover);
+		social_discord?.removeEventListener("click", social_discord_click);
+		social_discord?.removeEventListener("dblclick", social_discord_click);
+	
+		if (device === "desktop") {
+			social_discord?.addEventListener("mouseover", social_discord_mouseover);
+			social_discord?.addEventListener("mouseout", social_discord_mouseout);
+			social_discord?.addEventListener("dblclick", social_discord_click);
+		} else {
+			social_discord?.addEventListener("click", social_discord_mouseover);
+			social_discord?.addEventListener("click", social_discord_click);
+			social_discord?.addEventListener("mouseout", social_discord_mouseout);
+		}
+	}, [device]);	
 
 	return (
 		<>
