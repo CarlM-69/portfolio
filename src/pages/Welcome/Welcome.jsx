@@ -141,7 +141,7 @@ export default function Welcome() {
 				}, 3000);
 
 				message_message.children[0].children[0].src = "/svg/check.svg";
-			}).catch(() => { error_message("THERE WAS AN ERROR SENDING YOUR MESSAGE.") });
+			}).catch((e) => { error_message("THERE WAS AN ERROR SENDING YOUR MESSAGE." + JSON.stringify(e)) });
 		});
 	}, []);
 
