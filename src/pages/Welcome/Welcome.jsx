@@ -70,17 +70,17 @@ export default function Welcome() {
 				message_message.children[0].children[0].src = "/svg/xmark.svg";
 			}
 
-			if(fillups[1].value.length == 0) {
+			if(messenger.sender_email == 0) {
 				error_message("EMAIL ADDRESS IS REQUIRED!");
 				return;
 			}
 
-			if(fillups[2].value.length == 0) {
+			if(messenger.sender_message == 0) {
 				error_message("MESSAGE IS REQUIRED!");
 				return;
 			}
 
-			if(fillups[1].value.length < 64) {
+			if(messenger.sender_message < 64) {
 
 				error_message("MESSAGE LENGTH SHOULD BE AT LEAST 64 CHARACTERS!");
 				return;
