@@ -60,7 +60,7 @@ export default function Welcome() {
 				message_message.classList.add("show-message-sent-error");
 				setTimeout(() => {
 					message_message.classList.remove("show-message-sent-error");
-				}, 3000);
+				}, 2000);
 
 				message_message.children[0].children[0].src = "/svg/xmark.svg";
 			}
