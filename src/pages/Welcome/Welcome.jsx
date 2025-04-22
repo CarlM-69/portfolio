@@ -8,6 +8,7 @@ export default function Welcome() {
 	const [device, setDevice] = useState("");
 
 	useEffect(() => {
+		const subtitle = document.querySelector("#subtitle");
 		const redirect_2ndpage = document.querySelector("#redirect-to-2nd-page");
 		const redirect_2ndpage_dest = document.querySelector("#preview-container");
 		const message_form = document.querySelector(".message-me");
@@ -17,6 +18,37 @@ export default function Welcome() {
 			document.querySelector("#sender"),
 			document.querySelector("#message")
 		];
+		var list_of_subtitles = [
+			"A student.",
+			"An aspiring software engineer.",
+			"18 years old.",
+			"From Far Eastern University!",
+			"Creative in mind.",
+			"Excellence in mind.",
+			"Born to succeed."
+		];
+
+		(async function typingEffect() {
+			const wait = ms => new Promise(res => setTimeout(res, ms));
+		  
+			let index = 0;
+			try {
+			  while (true) {
+				const text = list_of_subtitles[index];
+
+				for (let char of text) {
+				  subtitle.textContent += char;
+				  await wait(100);
+				}
+				await wait(1000);
+				for (let i = subtitle.textContent.length; i > 0; i--) {
+				  subtitle.textContent = subtitle.textContent.substring(0, i - 1);
+				  await wait(50);
+				}
+				index = (index + 1) % list_of_subtitles.length;
+			  }
+			} catch(err) {}
+		  })();
 
 		redirect_2ndpage.addEventListener("click", () => {
 			redirect_2ndpage_dest.scrollIntoView({
