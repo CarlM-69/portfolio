@@ -138,7 +138,11 @@ export default function Welcome() {
 				message_message.classList.add("show-message-sent-success");
 
 				fillups.forEach((e) => {
+					var label = e.parentElement.children[0];
 					e.value = "";
+
+					label.classList.remove("input-on-focus-for-label");
+					e.classList.remove("input-on-focus-for-input");
 				});
 
 				setTimeout(() => {
