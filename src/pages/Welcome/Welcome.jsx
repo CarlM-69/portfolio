@@ -128,6 +128,7 @@ export default function Welcome() {
 				return;
 			}
 
+			emailjs.init("x_8WYzPh4AX6Bp14z");
 			emailjs.send("service_75jihf7","template_jkha2gu", this).then(() => {
 				message_message.children[1].innerText = "MESSAGE SENT!";
 				message_message.classList.add("show-message-sent-success");
