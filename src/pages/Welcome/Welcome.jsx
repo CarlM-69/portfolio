@@ -123,8 +123,8 @@ export default function Welcome() {
 				return;
 			}
 
-			if(fillups[2].value.length < 64) {
-				error_message(`MESSAGE LENGTH SHOULD BE AT LEAST 64 CHARACTERS!\n\n (${ fillups[2].value.length } character${ fillups[2].value.length == 1 ? "" : "s" })`);
+			if(fillups[2].value.length < 32) {
+				error_message(`MESSAGE LENGTH SHOULD BE AT LEAST 32 CHARACTERS!\n\n (${ fillups[2].value.length } character${ fillups[2].value.length == 1 ? "" : "s" })`);
 				return;
 			}
 
