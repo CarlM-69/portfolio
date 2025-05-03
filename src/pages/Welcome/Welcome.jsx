@@ -28,7 +28,8 @@ export default function Welcome() {
 			" Born to succeed."
 		];
 		var static_text = "I'm Carl Mathew Gabay.";
-		var cursorShown = false;
+		let cursorShown = false;
+		let emailDebounce = false;
 		const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 		
 		function renderCursor(add) {
@@ -100,8 +101,16 @@ export default function Welcome() {
 			});
 		});
 
+		async function resetDebounce() {
+			emailDebounce = false;
+		}
+
 		message_form.addEventListener("submit", (e) => {
 			e.preventDefault();
+			if(emailDebounce) {
+				error_message("WAIT ANOTHER 5 SECONDS TO SEND ANOTHER EMAIL!");
+				return;
+			}
 
 			function error_message(msg) {
 				message_message.children[1].innerText = msg;
@@ -151,6 +160,9 @@ export default function Welcome() {
 
 				message_message.children[0].children[0].src = "/svg/check.svg";
 			}).catch((e) => { error_message("THERE WAS AN ERROR SENDING YOUR MESSAGE." + JSON.stringify(e)) });
+
+			emailDebounce = true;
+			setTimeout(resetDebounce, 5000);
 		});
 	}, []);
 

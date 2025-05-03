@@ -267,7 +267,7 @@
 		@apply h-auto pb-12 pt-24;
 
 		@apply pb-10 pt-[4.5rem];
-		@apply sm:!pb-12 sm:!pt-24;
+		@apply sm:!pb-4 sm:!pt-24;
 	}
 
 	.container:nth-of-type(4) span {
