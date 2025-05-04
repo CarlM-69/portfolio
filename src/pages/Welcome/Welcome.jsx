@@ -21,6 +21,7 @@ export default function Welcome() {
 		var list_of_subtitles = [
 			" A student.",
 			" An aspiring software engineer.",
+			" Your video editor.",
 			" 18 years old.",
 			" From Far Eastern University!",
 			" Creative in mind.",
