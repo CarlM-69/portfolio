@@ -3,6 +3,7 @@ import "./Welcome.css";
 
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { render } from "react-dom";
 
 export default function Welcome() {
 	const [device, setDevice] = useState("");
@@ -42,7 +43,7 @@ export default function Welcome() {
 				for(const sentence of list_of_subtitles) {
 					subtitle.textContent = static_text;
 
-					var activeCursor = setInterval(() => renderCursor(""), 450);
+					var activeCursor = setInterval(renderCursor, 450, "");
 					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 					
@@ -53,7 +54,7 @@ export default function Welcome() {
 						await sleep(100);
 					}
 
-					var activeCursor = setInterval(() => renderCursor(charSet), 450);
+					var activeCursor = setInterval(renderCursor, 450, charSet);
 					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 
