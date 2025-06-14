@@ -42,7 +42,7 @@ export default function Welcome() {
 				for(const sentence of list_of_subtitles) {
 					subtitle.textContent = static_text;
 
-					var activeCursor = setInterval(renderCursor, 450, "");
+					var activeCursor = setInterval(() => renderCursor(""), 450);
 					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 					
@@ -53,7 +53,7 @@ export default function Welcome() {
 						await sleep(100);
 					}
 
-					var activeCursor = setInterval(renderCursor, 450, charSet);
+					var activeCursor = setInterval(() => renderCursor(charSet), 450);
 					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 
@@ -115,9 +115,7 @@ export default function Welcome() {
 			function error_message(msg) {
 				message_message.children[1].innerText = msg;
 				message_message.classList.add("show-message-sent-error");
-				setTimeout(() => {
-					message_message.classList.remove("show-message-sent-error");
-				}, 2000);
+				setTimeout(() => message_message.classList.remove("show-message-sent-error"), 2000);
 
 				message_message.children[0].children[0].src = "/svg/xmark.svg";
 			}
@@ -154,10 +152,7 @@ export default function Welcome() {
 					e.classList.remove("input-on-focus-for-input");
 				});
 
-				setTimeout(() => {
-					message_message.classList.remove("show-message-sent-success");
-				}, 3000);
-
+				setTimeout(() => message_message.classList.remove("show-message-sent-success"), 3000);
 				message_message.children[0].children[0].src = "/svg/check.svg";
 			}).catch((e) => { error_message("THERE WAS AN ERROR SENDING YOUR MESSAGE." + JSON.stringify(e)) });
 
