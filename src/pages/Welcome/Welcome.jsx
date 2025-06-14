@@ -21,7 +21,6 @@ export default function Welcome() {
 		var list_of_subtitles = [
 			" A student.",
 			" An aspiring software engineer.",
-			" Your video editor.",
 			" 18 years old.",
 			" From Far Eastern University!",
 			" Creative in mind.",
@@ -44,7 +43,7 @@ export default function Welcome() {
 					subtitle.textContent = static_text;
 
 					var activeCursor = setInterval(renderCursor, 450, "");
-					await sleep(Math.floor((Math.random() * 1500) + 1500));
+					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 					
 					var charSet = "";
@@ -55,7 +54,7 @@ export default function Welcome() {
 					}
 
 					var activeCursor = setInterval(renderCursor, 450, charSet);
-					await sleep(Math.floor((Math.random() * 1000) + 1500));
+					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 
 					for(let i = charSet.length; i > 0; i--) {
