@@ -53,7 +53,7 @@ export default function Welcome() {
 						await sleep(100);
 					}
 
-					var activeCursor = setInterval(renderCursor, 450, charSet);
+					var activeCursor = setInterval(() => renderCursor(charSet), 450);
 					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 
