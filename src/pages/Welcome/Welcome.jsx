@@ -42,7 +42,7 @@ export default function Welcome() {
 				for(const sentence of list_of_subtitles) {
 					subtitle.textContent = static_text;
 
-					var activeCursor = setInterval(renderCursor, 450, "");
+					var activeCursor = setInterval(() => renderCursor(""), 450);
 					await sleep(Math.floor((Math.random() * 1000) + 1000));
 					clearInterval(activeCursor);
 					
