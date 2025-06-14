@@ -3,7 +3,6 @@ import "./Welcome.css";
 
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { render } from "react-dom";
 
 export default function Welcome() {
 	const [device, setDevice] = useState("");
