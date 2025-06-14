@@ -63,7 +63,7 @@ export default function Welcome() {
 						subtitle.textContent = static_text + charSet + "|";
 						await sleep(70);
 					}
-				};
+				}
 			}
 		}
 		typeEffect();
