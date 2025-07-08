@@ -206,13 +206,6 @@ export default function Welcome() {
 					<img id="redirect-to-2nd-page" src="/svg/down-arrow.svg" alt="down arrow indicator" draggable="false" />
 				</div>
 			</div>
-			{/* <div className="container">
-				<span className="main-title">MY PORTFOLIO</span>
-				<span className="main-subtitle" id="subtitle">I'm Carl Mathew Gabay.</span>
-				<div className="down-arrow" id="redirect-to-2nd-page">
-					<img src="/svg/down-arrow.svg" alt="arrow down indicator" draggable="false" />
-				</div>
-			</div> */}
 			<div className="container" id="preview-container">
 				<div className="box-wrapper">
 					<div className="box">
