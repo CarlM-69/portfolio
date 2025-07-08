@@ -7,35 +7,42 @@
 	}
 
 	.container {
-		@apply relative w-full h-screen py-32 z-[10];
+		@apply relative w-full h-screen z-[10];
 	}
 
 	.container:nth-of-type(1) {
-		@apply flex items-center flex-col h-[120vh] pt-80;
+		@apply flex items-center flex-col !h-[120vh];
 	}
 
-	.container:nth-of-type(1) .main-title {
+	.container:nth-of-type(1) .child {
+		@apply flex justify-center w-full;
+	}
+
+	.container:nth-of-type(1) .child:nth-of-type(1) {
+		@apply items-end;
+
+		@apply h-[50%];
+	}
+
+	.container:nth-of-type(1) .child:nth-of-type(1) .main-title {
 		@apply font-bold text-white uppercase;
 
 		@apply text-[12vw];
 		@apply sm:!text-[9vw];
 	}
 
-	.container:nth-of-type(1) .main-subtitle {
+	.container:nth-of-type(1) .child:nth-of-type(2) {
+		@apply h-[15%];
+	}
+
+	.container:nth-of-type(1) .child:nth-of-type(2) .main-subtitle {
 		@apply font-light text-white/80 block text-center;
 
 		@apply text-[4.5vw] mt-[-2.5vw] w-4/5;
 		@apply sm:!text-[1.6vw] sm:!mt-[-2vw] sm:!w-full;
 	}
 
-	.container:nth-of-type(1) .down-arrow {
-		@apply absolute;
-
-		@apply bottom-[30%];
-		@apply sm:bottom-[40%];
-	}
-
-	.container:nth-of-type(1) .down-arrow img {
+	.container:nth-of-type(1) .child:nth-of-type(3) img {
 		@apply aspect-square cursor-pointer select-none;
 		@apply animate-[bounce_1s_ease-in-out_infinite];
 
